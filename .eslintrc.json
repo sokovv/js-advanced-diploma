@@ -1,6 +1,7 @@
 {
     "env": {
         "browser": true,
+        "jest": true,
         "es2021": true
     },
     "extends": [
@@ -11,5 +12,16 @@
         "sourceType": "module"
     },
     "rules": {
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
+        "no-restricted-syntax": [
+            "error",
+            "LabeledStatement",
+            "WithStatement"
+        ]
     }
 }

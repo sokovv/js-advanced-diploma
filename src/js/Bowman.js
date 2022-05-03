@@ -10,8 +10,3 @@ export default class Bowman extends Character {
     this.type = 'bowman';
   }
 }
-
-
-
-
-

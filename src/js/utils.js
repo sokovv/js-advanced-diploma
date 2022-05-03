@@ -1,18 +1,16 @@
 export function calcTileType(index, boardSize) {
-
-  if (index == 0) {
-    return 'top-left';
+  switch (index) {
+    case 0:
+      return 'top-left';
+    case boardSize ** 2 - 1:
+      return 'bottom-right';
+    case boardSize * boardSize - boardSize:
+      return 'bottom-left';
+    case boardSize - 1:
+      return 'top-right';
+    default:
+      break;
   }
-  if (index == boardSize ** 2 - 1) {
-    return 'bottom-right';
-  }
-  if (index == boardSize * boardSize - boardSize) {
-    return 'bottom-left';
-  }
-  if (index == boardSize - 1) {
-    return 'top-right';
-  }
-
   if ((index + 1) % boardSize === 0) {
     return 'right';
   }
@@ -27,9 +25,8 @@ export function calcTileType(index, boardSize) {
   if (index > boardSize * boardSize - boardSize && index < boardSize ** 2 - 1) {
     return 'bottom';
   }
-  else {
-    return 'center';
-  }
+
+  return 'center';
 }
 
 export function calcHealthLevel(health) {

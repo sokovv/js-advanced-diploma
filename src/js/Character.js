@@ -5,9 +5,8 @@ export default class Character {
     this.defence = 0;
     this.health = 50;
     this.type = type;
-    if (new.target.name == 'Character') {
+    if (new.target.name === 'Character') {
       throw new Error('Нельзя создавать объект Character, только наследование');
     }
   }
 }
-

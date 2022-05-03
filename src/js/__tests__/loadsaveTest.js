@@ -1,19 +1,21 @@
 import GamePlay from '../GamePlay';
 import GameController from '../GameController';
 import GameStateService from '../GameStateService';
+import GameState from '../GameState';
 
 const gamePlay = new GamePlay();
+const gameState = new GameState(gamePlay);
 const stateService = new GameStateService({});
-const gameController = new GameController(gamePlay, stateService);
+const gameController = new GameController(gamePlay, stateService, gameState);
 
 jest.mock('../GameStateService');
 jest.mock('../GamePlay');
 const save = {
-    bindPers: 0,
-    stage: 1,
-    them: 'prairie',
-    arrPositionedCharacter: [],
-    score: 0
+  bindPers: 0,
+  stage: 1,
+  them: 'prairie',
+  arrPositionedCharacter: [],
+  score: 0,
 };
 
 beforeEach(() => {
@@ -24,11 +26,11 @@ test('Загрузка', () => {
   gameController.stateService.load.mockReturnValue(save);
   gameController.onLoadGameClick();
   const recieved = {};
-  recieved.bindPers = gameController.bindPers;
-  recieved.stage = gameController.stage;
-  recieved.them = gameController.them;
-  recieved.arrPositionedCharacter = gameController.arrPositionedCharacter;
-  recieved.score = gameController.score;
+  recieved.bindPers = gameState.bindPers;
+  recieved.stage = gameState.stage;
+  recieved.them = gameState.them;
+  recieved.arrPositionedCharacter = gameState.arrPositionedCharacter;
+  recieved.score = gameState.score;
   expect(recieved).toEqual(save);
 });
 

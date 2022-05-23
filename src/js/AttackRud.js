@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export default function attackRud(index, radius) {
   const Steps = new Set();
   let left = index;

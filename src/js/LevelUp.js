@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 export default function levelUp(pers) {
   const person = pers;
   person.level += 1;
